@@ -363,6 +363,11 @@ class Pinput extends StatefulWidget {
   /// This is useful if you want to unfocus the [Pinput] when user taps outside of it
   final TapRegionCallback? onTapOutside;
 
+  /// If [obscureText] is true and [obscuringWidget] is null
+  /// this callback will be called to build obscuring widget
+  /// Default is [Text] with [obscuringCharacter]
+  /// If you want to use custom widget you can use [onCustomSubmittedWidgetBuild]
+  /// to build custom widget for each submitted pin
   final CustomSubmittedWidgetBuild? onCustomSubmittedWidgetBuild;
 
   static Widget _defaultContextMenuBuilder(
