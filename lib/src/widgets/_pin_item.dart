@@ -73,6 +73,17 @@ class _PinItem extends StatelessWidget {
         return SizedBox(key: key, child: state.widget.obscuringWidget);
       }
 
+      if (state.widget.onCustomSubmittedWidgetBuild != null) {
+        return SizedBox(
+          key: key,
+          child: state.widget.onCustomSubmittedWidgetBuild?.call(
+            state.widget.obscureText
+                ? state.widget.obscuringCharacter
+                : pin[index],
+          ),
+        );
+      }
+
       return Text(
         state.widget.obscureText ? state.widget.obscuringCharacter : pin[index],
         key: key,

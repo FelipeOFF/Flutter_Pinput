@@ -109,6 +109,7 @@ class Pinput extends StatefulWidget {
     this.scrollPadding = const EdgeInsets.all(20),
     this.contextMenuBuilder = _defaultContextMenuBuilder,
     this.onTapOutside,
+    this.onCustomSubmittedWidgetBuild,
     Key? key,
   })  : assert(obscuringCharacter.length == 1),
         assert(length > 0),
@@ -361,6 +362,8 @@ class Pinput extends StatefulWidget {
   /// although it will be within the region of one of the group members.
   /// This is useful if you want to unfocus the [Pinput] when user taps outside of it
   final TapRegionCallback? onTapOutside;
+
+  final CustomSubmittedWidgetBuild? onCustomSubmittedWidgetBuild;
 
   static Widget _defaultContextMenuBuilder(
     BuildContext context,

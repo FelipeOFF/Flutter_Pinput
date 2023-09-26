@@ -645,4 +645,8 @@ final EditableTextContextMenuBuilder? contextMenuBuilder;
 /// although it will be within the region of one of the group members.
 /// This is useful if you want to unfocus the [Pinput] when user taps outside of it
 final TapRegionCallback? onTapOutside;
+
+/// A builder for create submitted widgets, see [PinputSubmitField]
+/// [onCustomSubmittedWidgetBuild]
+final CustomSubmittedWidgetBuild? onCustomSubmittedWidgetBuild;
 ```
