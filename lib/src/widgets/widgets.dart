@@ -111,21 +111,21 @@ class _PinputAnimatedCursorState extends State<_PinputAnimatedCursor>
 
   @override
   Widget build(BuildContext context) {
-    if (widget.isToExecuteCursorAnimation) {
-      return AnimatedBuilder(
-        animation: _animationController,
-        builder: (BuildContext context, Widget? child) {
-          return widget.builder(_currentProgress) ?? const SizedBox();
-        },
-        child: widget.builder(_currentProgress) ?? const SizedBox(),
-      );
-    } else {
+    if (!widget.isToExecuteCursorAnimation) {
       return FadeTransition(
         opacity: _animationController,
         child: _PinputCursor(
           textStyle: widget.textStyle,
           cursor: widget.builder(_currentProgress),
         ),
+      );
+    } else {
+      return AnimatedBuilder(
+        animation: _animationController,
+        builder: (BuildContext context, Widget? child) {
+          return widget.builder(_currentProgress) ?? const SizedBox();
+        },
+        child: widget.builder(_currentProgress) ?? const SizedBox(),
       );
     }
   }
