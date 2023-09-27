@@ -111,7 +111,7 @@ class _PinputAnimatedCursorState extends State<_PinputAnimatedCursor>
 
   @override
   Widget build(BuildContext context) {
-    if (!widget.isToExecuteCursorAnimation) {
+    if (widget.isToExecuteCursorAnimation) {
       return FadeTransition(
         opacity: _animationController,
         child: _PinputCursor(
