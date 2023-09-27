@@ -116,16 +116,16 @@ class _PinputAnimatedCursorState extends State<_PinputAnimatedCursor>
         opacity: _animationController,
         child: _PinputCursor(
           textStyle: widget.textStyle,
-          cursor: widget.builder(_currentProgress),
+          cursor: widget.builder(context, _currentProgress),
         ),
       );
     } else {
       return AnimatedBuilder(
         animation: _animationController,
         builder: (BuildContext context, Widget? child) {
-          return widget.builder(_currentProgress) ?? const SizedBox();
+          return widget.builder(context, _currentProgress) ?? const SizedBox();
         },
-        child: widget.builder(_currentProgress) ?? const SizedBox(),
+        child: widget.builder(context, _currentProgress) ?? const SizedBox(),
       );
     }
   }

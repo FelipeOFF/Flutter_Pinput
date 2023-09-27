@@ -7,4 +7,4 @@ typedef CustomSubmittedWidgetBuild = Widget Function(String text);
 
 /// This is a callback to create a new widget that is used to render the
 /// [CustomCursor] widget.
-typedef CustomCursorWidgetBuild = Widget? Function(double progress);
+typedef CustomCursorWidgetBuild = Widget? Function(BuildContext context, double progress);
