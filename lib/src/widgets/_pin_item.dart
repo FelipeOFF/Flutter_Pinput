@@ -112,7 +112,8 @@ class _PinItem extends StatelessWidget {
     if (state.widget.isCursorAnimationEnabled) {
       return _PinputAnimatedCursor(
         textStyle: pinTheme.textStyle,
-        cursor: state.widget.cursor,
+        isToExecuteCursorAnimation: state.widget.isToExecuteCursorAnimation,
+        builder: state.widget.onCustomCursorWidgetBuild ?? (progress) => state.widget.cursor,
       );
     }
 

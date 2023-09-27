@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
+import 'package:pinput/src/utils/typedefs.dart';
 import 'package:smart_auth/smart_auth.dart';
 import 'package:universal_platform/universal_platform.dart';
 
@@ -110,6 +111,8 @@ class Pinput extends StatefulWidget {
     this.contextMenuBuilder = _defaultContextMenuBuilder,
     this.onTapOutside,
     this.onCustomSubmittedWidgetBuild,
+    this.onCustomCursorWidgetBuild,
+    this.isToExecuteCursorAnimation = false,
     Key? key,
   })  : assert(obscuringCharacter.length == 1),
         assert(length > 0),
@@ -254,6 +257,10 @@ class Pinput extends StatefulWidget {
 
   final bool isCursorAnimationEnabled;
 
+  /// Is animated cursor but is not to build the animation
+  /// The animation will be in charge of developer
+  final bool isToExecuteCursorAnimation;
+
   /// Whether to enable that the IME update personalized data such as typing history and user dictionary data.
   //
   // This flag only affects Android. On iOS, there is no equivalent flag.
@@ -369,6 +376,13 @@ class Pinput extends StatefulWidget {
   /// If you want to use custom widget you can use [onCustomSubmittedWidgetBuild]
   /// to build custom widget for each submitted pin
   final CustomSubmittedWidgetBuild? onCustomSubmittedWidgetBuild;
+
+  /// If [obscureText] is true and [obscuringWidget] is null
+  /// this callback will be called to build obscuring widget
+  /// Default is [Text] with [obscuringCharacter]
+  /// If you want to use custom widget you can use [onCustomSubmittedWidgetBuild]
+  /// to build custom widget for each submitted pin
+  final CustomCursorWidgetBuild? onCustomCursorWidgetBuild;
 
   static Widget _defaultContextMenuBuilder(
     BuildContext context,

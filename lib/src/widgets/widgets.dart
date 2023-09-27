@@ -63,12 +63,14 @@ class _PinputCursor extends StatelessWidget {
 }
 
 class _PinputAnimatedCursor extends StatefulWidget {
-  final Widget? cursor;
+  final CustomCursorWidgetBuild builder;
   final TextStyle? textStyle;
+  final bool isToExecuteCursorAnimation;
 
   const _PinputAnimatedCursor({
     required this.textStyle,
-    required this.cursor,
+    required this.builder,
+    required this.isToExecuteCursorAnimation,
   });
 
   @override
@@ -78,6 +80,8 @@ class _PinputAnimatedCursor extends StatefulWidget {
 class _PinputAnimatedCursorState extends State<_PinputAnimatedCursor>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animationController;
+
+  double get _currentProgress => _animationController.value;
 
   @override
   void initState() {
@@ -107,9 +111,22 @@ class _PinputAnimatedCursorState extends State<_PinputAnimatedCursor>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _animationController,
-      child: _PinputCursor(textStyle: widget.textStyle, cursor: widget.cursor),
-    );
+    if (widget.isToExecuteCursorAnimation) {
+      return AnimatedBuilder(
+        animation: _animationController,
+        builder: (BuildContext context, Widget? child) {
+          return widget.builder(_currentProgress) ?? const SizedBox();
+        },
+        child: widget.builder(_currentProgress) ?? const SizedBox(),
+      );
+    } else {
+      return FadeTransition(
+        opacity: _animationController,
+        child: _PinputCursor(
+          textStyle: widget.textStyle,
+          cursor: widget.builder(_currentProgress),
+        ),
+      );
+    }
   }
 }
