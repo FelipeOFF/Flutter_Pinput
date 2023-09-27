@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../pinput.dart';
 
 /// This is a callback that is used to build a widget that is submitted to a
 /// The [text] argument is the text that is currently being edited.

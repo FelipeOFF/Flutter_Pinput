@@ -6,7 +6,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
-import 'package:pinput/src/utils/typedefs.dart';
 import 'package:smart_auth/smart_auth.dart';
 import 'package:universal_platform/universal_platform.dart';
 
@@ -27,6 +26,8 @@ part 'widgets/_pin_item.dart';
 part 'utils/pinput_utils_mixin.dart';
 
 part 'widgets/_pinput_selection_gesture_detector_builder.dart';
+
+part 'utils/typedefs.dart';
 
 /// Flutter package to create easily customizable Pin code input field, that your designers can't even draw in Figma 🤭
 ///
