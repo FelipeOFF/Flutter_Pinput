@@ -92,7 +92,7 @@ class _PinputAnimatedCursorState extends State<_PinputAnimatedCursor>
   void _startCursorAnimation() {
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 450),
+      duration: const Duration(milliseconds: 1000),
     );
 
     _animationController.addStatusListener((AnimationStatus status) {
