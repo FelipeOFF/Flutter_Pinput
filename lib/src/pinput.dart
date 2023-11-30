@@ -114,6 +114,7 @@ class Pinput extends StatefulWidget {
     this.onCustomSubmittedWidgetBuild,
     this.onCustomCursorWidgetBuild,
     this.isToExecuteCursorAnimation = false,
+    this.cursorAnimationTimer = 500,
     Key? key,
   })  : assert(obscuringCharacter.length == 1),
         assert(length > 0),
@@ -384,6 +385,10 @@ class Pinput extends StatefulWidget {
   /// If you want to use custom widget you can use [onCustomSubmittedWidgetBuild]
   /// to build custom widget for each submitted pin
   final CustomCursorWidgetBuild? onCustomCursorWidgetBuild;
+
+  /// Animation controller for the cursor timer
+  /// the timer in milliseconds
+  final int cursorAnimationTimer;
 
   static Widget _defaultContextMenuBuilder(
     BuildContext context,

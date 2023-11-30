@@ -114,6 +114,7 @@ class _PinItem extends StatelessWidget {
         textStyle: pinTheme.textStyle,
         isToExecuteCursorAnimation: state.widget.isToExecuteCursorAnimation,
         builder: state.widget.onCustomCursorWidgetBuild ?? (_, progress) => state.widget.cursor,
+        cursorAnimationDuration: state.widget.cursorAnimationTimer,
       );
     }
 
