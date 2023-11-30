@@ -66,13 +66,13 @@ class _PinputAnimatedCursor extends StatefulWidget {
   final CustomCursorWidgetBuild builder;
   final TextStyle? textStyle;
   final bool isToExecuteCursorAnimation;
-  final int cursorAnimationDuration;
+  final Duration cursorAnimationDuration;
 
   const _PinputAnimatedCursor({
     required this.textStyle,
     required this.builder,
     required this.isToExecuteCursorAnimation,
-    this.cursorAnimationDuration = 500,
+    this.cursorAnimationDuration = const Duration(milliseconds: 500),
   });
 
   @override
@@ -94,7 +94,7 @@ class _PinputAnimatedCursorState extends State<_PinputAnimatedCursor>
   void _startCursorAnimation() {
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: widget.cursorAnimationDuration),
+      duration: widget.cursorAnimationDuration,
     );
 
     _animationController.addStatusListener((AnimationStatus status) {

@@ -114,7 +114,7 @@ class Pinput extends StatefulWidget {
     this.onCustomSubmittedWidgetBuild,
     this.onCustomCursorWidgetBuild,
     this.isToExecuteCursorAnimation = false,
-    this.cursorAnimationTimer = 500,
+    this.cursorAnimationTimer = const Duration(milliseconds: 500),
     Key? key,
   })  : assert(obscuringCharacter.length == 1),
         assert(length > 0),
@@ -388,7 +388,7 @@ class Pinput extends StatefulWidget {
 
   /// Animation controller for the cursor timer
   /// the timer in milliseconds
-  final int cursorAnimationTimer;
+  final Duration cursorAnimationTimer;
 
   static Widget _defaultContextMenuBuilder(
     BuildContext context,
