@@ -80,6 +80,8 @@ class _PinItem extends StatelessWidget {
             state.widget.obscureText
                 ? state.widget.obscuringCharacter
                 : pin[index],
+            pin,
+            state.hasError,
           ),
         );
       }
@@ -113,7 +115,8 @@ class _PinItem extends StatelessWidget {
       return _PinputAnimatedCursor(
         textStyle: pinTheme.textStyle,
         isToExecuteCursorAnimation: state.widget.isToExecuteCursorAnimation,
-        builder: state.widget.onCustomCursorWidgetBuild ?? (_, progress) => state.widget.cursor,
+        builder: state.widget.onCustomCursorWidgetBuild ??
+            (_, progress) => state.widget.cursor,
         cursorAnimationDuration: state.widget.cursorAnimationTimer,
       );
     }
